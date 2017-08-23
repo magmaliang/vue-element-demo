@@ -4,6 +4,7 @@ import ElementUI from 'element-ui';
 
 import Contact from './pages/contact.vue';
 import Layout from './component/layout.vue';
+// require('element-ui/lib/theme-default/index.css');
 
 // 使用 element UI
 Vue.use(ElementUI);
