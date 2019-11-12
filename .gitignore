@@ -11,3 +11,4 @@ npm-debug.log
 .project
 *.zip
 .vscode
+release

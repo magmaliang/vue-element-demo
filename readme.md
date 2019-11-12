@@ -7,6 +7,9 @@
 npm install
 npm start 
 
+// 项目编译
+npm run build
+
 ```
 
 ## 关键点
@@ -40,3 +43,24 @@ router 就是当url的hash发生变化时在指定区域渲染指定的组件。
 [http://element.eleme.io/#/zh-CN/component/table](http://element.eleme.io/#/zh-CN/component/table)
 
 例子中点击编辑时，通过获取row信息，然后给form赋值。这个功能由contact组件中的editItem传递到table中实现，可以反应兄弟组件之间的数据传递。
+
+
+## 关于url-loader
+
+url-loader在limit范围内会将指定资源转化成base64,超过limit则会将资源用file-loader处理，所以需要同时安装file-loader.
+
+### 路径问题
+
+使用npm run build可以看到assets资源打包后的情况，原则上file-loader会处理好相对路径。
+
+url-loader不可像css那样使用alias，需要指定格式：
+
+```css
+/* 波浪号表示后面是个module, 下例所示的assets在webpack的alias中定义过，可以理解为一个module，
+具体见： https://github.com/webpack-contrib/css-loader/issues/49 */
+.bg-img {
+	height: 200px;
+	background: url('~assets/abc.png') no-repeat;
+}
+```
+
